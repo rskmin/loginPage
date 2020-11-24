@@ -1,0 +1,92 @@
+@mixin pc-login() {
+  .rm-login {
+    .pc-login {
+      display: none;
+    }
+    &.rm-login--pc-login {
+      .pc-login {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: $colorCard;
+        width: 100%;
+        height: calc(100% - #{$bottom-bar});
+        padding: {
+          left: $p28;
+          right: $p28;
+        }
+        border-radius: $radius $radius 0 0;
+        transition: background-size 0.3s ease-in-out;
+        transition: background-position 0.3s ease-in-out;
+        animation: appear 0.3s linear;
+        overflow: hidden;
+
+        .qr-code {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          background: $colorPrimaryDeep;
+          clip-path: circle(35% at 80% 20%);
+          background-image: url("../../public/img/qr-code.png");
+          background-repeat: no-repeat;
+          background-position: 93% 7%;
+          background-size: 40%;
+          transition: 0.5s ease-in-out;
+        }
+
+        .login-title {
+          position: relative;
+          top: 50%;
+          transition: 0.5s ease-in-out;
+        }
+        .form {
+          position: relative;
+          top: 85%;
+          transition: 0.5s ease-in-out;
+        }
+        .form-item {
+          height: 50px;
+        }
+        .form-info {
+          color: $colorError;
+          font-size: 12px;
+          line-height: 20px;
+          padding-left: $p4;
+        }
+        .form-operations-top {
+          position: absolute;
+          bottom: 60px;
+          right: $p28;
+          transition: 0.2s ease-in-out;
+        }
+      }
+      &:hover {
+        .pc-login {
+          .qr-code {
+            clip-path: circle(15px at 100% 0);
+            background-size: 10%;
+            background-position: 96% 4%;
+          }
+          .login-title {
+            top: 0;
+          }
+          .form {
+            top: 0;
+          }
+          .form-operations-top {
+            transition-delay: 0.5s;
+            bottom: 125px;
+          }
+        }
+      }
+      .others-login {
+        visibility: visible;
+      }
+    }
+  }
+}

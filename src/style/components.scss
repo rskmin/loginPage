@@ -1,0 +1,116 @@
+.inputBox {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: -4px -4px 5px rgba(255, 255, 255, 0.8),
+    inset 4px 4px 5px rgba(0, 0, 0, 0.05),
+    inset -4px -4px 5px rgba(255, 255, 255, 0.8),
+    4px 4px 5px rgba(0, 0, 0, 0.05);
+
+  i {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-left: $p8;
+  }
+
+  i ~ input {
+    padding: $p4;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    padding: $p4 $p12;
+    font-size: 18px;
+    outline: none;
+    color: $colorPrimaryDeep;
+    letter-spacing: 2px;
+
+    &::placeholder {
+      color: #ccc;
+    }
+  }
+}
+
+.neon-button {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: $p4 20px;
+  color: $colorPrimaryDeep;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  height: 30px;
+  transition: 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid $colorPrimaryDeep;
+    border-left: 2px solid $colorPrimaryDeep;
+    transition: 0.3s;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid $colorPrimaryDeep;
+    border-bottom: 2px solid $colorPrimaryDeep;
+    transition: 0.3s;
+  }
+  &:hover {
+    background: $colorPrimaryDeep;
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 20px $colorPrimaryDeep;
+    border-radius: $radius;
+    transition-delay: 0.3s;
+    &::before,
+    &::after {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.rm-loading {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $disabled;
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: calc(50% - 15px / 2);
+    top: calc(50% - 15px * 0.707);
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: $colorPrimaryDeep;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: rotate360 1.2s linear infinite;
+  }
+}

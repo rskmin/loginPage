@@ -1,0 +1,46 @@
+@mixin account-register() {
+  .rm-login {
+    .account-register {
+      display: none;
+    }
+    &.rm-login--account-register {
+      .account-register {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: $colorCard;
+        height: calc(100% - #{$bottom-bar});
+        padding: {
+          left: $p28;
+          right: $p28;
+        }
+        border-radius: $radius $radius 0 0;
+        animation: appear 0.3s linear;
+        .form {
+          position: relative;
+          transition: 0.5s ease-in-out;
+        }
+        .form-item {
+          height: 50px;
+        }
+        .form-info {
+          color: $colorError;
+          font-size: 12px;
+          line-height: 20px;
+          padding-left: $p4;
+        }
+        .form-operations-top {
+          position: absolute;
+          bottom: 60px;
+          right: $p28;
+          bottom: 75px;
+        }
+      }
+      #main-button {
+        bottom: 10px;
+      }
+    }
+  }
+}
